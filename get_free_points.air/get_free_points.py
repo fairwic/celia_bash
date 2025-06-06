@@ -6,8 +6,10 @@ from airtest.core.api import *
 auto_setup(__file__)
 # 获取当前运行的应用包名
 package = G.DEVICE.get_top_activity()[0]
-def close_ad():
+def close_ad(count=100):
+   i=0;
    while True:
+    i+=1;
         #直到发现有关闭按钮或者返回按钮
     if exists(Template(r"tpl1749104887030.png", record_pos=(0.438, -0.828), resolution=(720, 1280))):
       sleep(2);
@@ -35,11 +37,13 @@ def close_ad():
         keyevent("back");
         break;
     sleep(1);
+    if i > count:
+      break;
    print("广告关闭结束")
 
 def get_free_points():
     if exists(Template(r"tpl1749104758630.png", record_pos=(-0.174, -0.81), resolution=(720, 1280))):
-        sleep(2)
+        sleep(1)
         touch(Template(r"tpl1749104758630.png", record_pos=(-0.174, -0.81), resolution=(720, 1280)))
         while True:
         #如果不存在倒计时
@@ -57,9 +61,10 @@ def get_free_points():
 
              close_ad();
              # 判断是否有倒计时 ，如果没有倒计时 说明关闭广告失败了，重新关闭广告
+             sleep(1)
              if not exists(Template(r"tpl1749105441372.png", record_pos=(-0.071, 0.571), resolution=(720, 1280))):
               print("没有倒计时表示关闭广告失败，重新关闭广告")
-              close_ad();
+              close_ad(3);
              keyevent("BACK")
              break;
            else:
@@ -83,6 +88,7 @@ while True:
          if exists(Template(r"tpl1749108234200.png", record_pos=(0.347, -0.856), resolution=(720, 1280))):
           touch(Template(r"tpl1749108245783.png", record_pos=(0.457, -0.853), resolution=(720, 1280)))
      sleep(3)
+
 
 
 
