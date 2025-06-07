@@ -167,52 +167,52 @@ def kyc_ocr(find_words_path, username):
     return False
 
 accounts = [
-    ("dingxueke1025@gmail.com", "Dingxueke@520"),
-    ("fairwickcelia@gmail.com", "fairwickcelia@520"),
-    ("chaoliushishangfaner@gmail.com", "Fangweicong@520"),
-    ("chaoliushishangfanerbtc@gmail.com",     "chaoliushishangfanbtc@gmail.com"),
-    ("dingxueke001@outlook.com", "dingxuke@001"),
-    ("fangweicong1001@outlook.com", "fangweicong1001@520"),
-    ("fangweicong1002@outlook.com", "fangweicong1002@520"),
-    ("fangweicong1003@outlook.com", "Fangweicong1003@520"),
-    ("fangweicong1004@outlook.com", "fangweicong1004@520"),
-    ("fangweicong1005@outlook.com", "fangweicong@1005"),
-    ("fangweicong1006@outlook.com", "fangweicong@1006"),
-    ("fangweicong1007@outlook.com", "fangweicong@1007"),
-    ("fangweicong1009@outlook.com", "Fangweicong@1009"),
-    ("fangweicong001@gmail.com", "fangweicong001@520"),
-    ("fangweicong002@gmail.com", "fangweicong002@520"),
-    ("fangweicong003@gmail.com", "fangweicong003@520"),
-    ("fangweicong004@gmail.com", "fangweicong004@520"),
-    ("fangweicong005@gmail.com", "fangweicong005@520"),
-    ("fangweicong006@gmail.com", "fangweicong006@520"),
-    ("fangweicong007@gmail.com", "fangweicong007@520"),
-    ("fangweicong008@gmail.com", "fangweicong008@520"),
-#     
-    ("jegefec313@magpit.com", "Fangweicong@520"),
-    ("ponoyo3578@daupload.com", "Fangweicong@520"),
-    ("yijebix832@jazipo.com", "Fangweicong@520"),
-    ("jasapoy911@bamsrad.com", "Fangweicong@520"),
-    ("selid55081@deusa7.com", "Fangweicong@520"),
-    ("doroye5846@daupload.com", "Fangweicong@520"),
-    ("katikar837@jazipo.com", "Fangweicong@520"),
-    ("womabe5305@inkight.com", "Fangweicong@520"),
-    ("lecatix608@hazhab.com", "Fangweicong@520"),
-    ("xodila4171@magpit.com", "Fangweicong@520"),
-    ("moreki9303@daupload.com", "Fangweicong@520"),
-    ("jomol30718@daupload.com", "Fangweicong@520"),
-    ("bejim48324@neuraxo.com", "Fangweicong@520"),
-    ("repovor207@deusa7.com", "Fangweicong@520"),
-    ("vibajo9124@deusa7.com", "Fangweicong@520"),
-    ("nifape9682@magpit.com", "Fangweicong@520"),
-    ("famex75907@magpit.com", "Fangweicong@520"),
-    ("hosikay163@jazipo.com", "Fangweicong@520"),
-    ("masak12502@daupload.com", "Fangweicong@520"),
-    ("saboy52131@neuraxo.com", "Fangweicong@520"),
-    ("xaxela8839@daupload.com", "Fangweicong@520"),
-    ("posajo3690@magpit.com", "Fangweicong@520"),
-    ("piwobo5616@neuraxo.com", "Fangweicong@520"),
-    ("geviy27225@hazhab.com", "Fangweicong@520"),
+#     ("dingxueke1025@gmail.com", "Dingxueke@520"),
+#     ("fairwickcelia@gmail.com", "fairwickcelia@520"),
+#     ("chaoliushishangfaner@gmail.com", "Fangweicong@520"),
+#     ("chaoliushishangfanerbtc@gmail.com",        "chaoliushishangfanbtc@gmail.com"),
+#     ("dingxueke001@outlook.com", "dingxuke@001"),
+#     ("fangweicong1001@outlook.com", "fangweicong1001@520"),
+#     ("fangweicong1002@outlook.com", "fangweicong1002@520"),
+#     ("fangweicong1003@outlook.com", "Fangweicong1003@520"),
+#     ("fangweicong1004@outlook.com", "fangweicong1004@520"),
+#     ("fangweicong1005@outlook.com", "fangweicong@1005"),
+#     ("fangweicong1006@outlook.com", "fangweicong@1006"),
+#     ("fangweicong1007@outlook.com", "fangweicong@1007"),
+#     ("fangweicong1009@outlook.com", "Fangweicong@1009"),
+#     ("fangweicong001@gmail.com", "fangweicong001@520"),
+#     ("fangweicong002@gmail.com", "fangweicong002@520"),
+#     ("fangweicong003@gmail.com", "fangweicong003@520"),
+#     ("fangweicong004@gmail.com", "fangweicong004@520"),
+#     ("fangweicong005@gmail.com", "fangweicong005@520"),
+#     ("fangweicong006@gmail.com", "fangweicong006@520"),
+#     ("fangweicong007@gmail.com", "fangweicong007@520"),
+#     ("fangweicong008@gmail.com", "fangweicong008@520"),
+# #     
+#     ("jegefec313@magpit.com", "Fangweicong@520"),
+#     ("ponoyo3578@daupload.com", "Fangweicong@520"),
+#     ("yijebix832@jazipo.com", "Fangweicong@520"),
+#     ("jasapoy911@bamsrad.com", "Fangweicong@520"),
+#     ("selid55081@deusa7.com", "Fangweicong@520"),
+#     ("doroye5846@daupload.com", "Fangweicong@520"),
+#     ("katikar837@jazipo.com", "Fangweicong@520"),
+#     ("womabe5305@inkight.com", "Fangweicong@520"),
+#     ("lecatix608@hazhab.com", "Fangweicong@520"),
+#     ("xodila4171@magpit.com", "Fangweicong@520"),
+#     ("moreki9303@daupload.com", "Fangweicong@520"),
+#     ("jomol30718@daupload.com", "Fangweicong@520"),
+#     ("bejim48324@neuraxo.com", "Fangweicong@520"),
+#     ("repovor207@deusa7.com", "Fangweicong@520"),
+#     ("vibajo9124@deusa7.com", "Fangweicong@520"),
+#     ("nifape9682@magpit.com", "Fangweicong@520"),
+#     ("famex75907@magpit.com", "Fangweicong@520"),
+#     ("hosikay163@jazipo.com", "Fangweicong@520"),
+#     ("masak12502@daupload.com", "Fangweicong@520"),
+#     ("saboy52131@neuraxo.com", "Fangweicong@520"),
+#     ("xaxela8839@daupload.com", "Fangweicong@520"),
+#     ("posajo3690@magpit.com", "Fangweicong@520"),
+#     ("piwobo5616@neuraxo.com", "Fangweicong@520"),
+#     ("geviy27225@hazhab.com", "Fangweicong@520"),
     ("tojowab604@ofular.com", "Fangweicong@520"),
     ("henate8884@nomrista.com", "Fangweicong@520"),
     ("camim87364@pricegh.com", "Fangweicong@520"),
@@ -261,13 +261,18 @@ def get_claim(account):
      if exists(Template(r"tpl1748247293687.png", record_pos=(-0.211, -0.147), resolution=(720, 1280))):
         touch(Template(r"tpl1748247293687.png", record_pos=(-0.211, -0.147), resolution=(720, 1280)))
         #滚动到底部
-        swipe(Template(r"tpl1748931363972.png", record_pos=(-0.165, 0.629), resolution=(720, 1280)), vector=[-0.1264, -0.2531])
+        swipe(Template(r"tpl1749266035467.png", record_pos=(-0.307, 0.378), resolution=(720, 1280)), vector=[-0.1264, -0.2531])
 
         #循环点击四次
         for i in range(5):
             if exists(Template(r"tpl1748247524687.png", record_pos=(0.293, 0.25), resolution=(720, 1280))):
                 #follow
                 touch(Template(r"tpl1748247524687.png", record_pos=(0.293, 0.25), resolution=(720, 1280)))
+                sleep(2)
+                keyevent("BACK")
+            elif exists(Template(r"tpl1749265631187.png", record_pos=(0.293, 0.251), resolution=(720, 1280))):
+                #follow
+                touch(Template(r"tpl1749265631187.png", record_pos=(0.293, 0.251), resolution=(720, 1280)))
                 sleep(2)
                 keyevent("BACK")
             elif exists(Template(r"tpl1748248814043.png", record_pos=(0.301, 0.374), resolution=(720, 1280))):
@@ -280,6 +285,22 @@ def get_claim(account):
      else:
         keyevent("BACK")
      sleep(2)
+
+
+def close_ad():
+     if exists(Template(r"tpl1748004705951.png", record_pos=(0.436, -0.829), resolution=(720, 1280))):
+            touch(Template(r"tpl1748004735948.png", record_pos=(0.438, -0.822), resolution=(720, 1280)))
+        # 等待10秒广告结束
+     if exists(Template(r"tpl1746184976411.png", record_pos=(0.444, -0.837), resolution=(540, 960))):
+            touch(Template(r"tpl1746184976411.png", record_pos=(0.444, -0.837), resolution=(540, 960)))
+        # 等待20秒广告结束
+     if exists(Template(r"tpl1747885110731.png", record_pos=(0.436, -0.829), resolution=(720, 1280))):
+            touch(Template(r"tpl1747885122130.png", record_pos=(0.436, -0.826), resolution=(720, 1280)))
+     if exists(Template(r"tpl1747968753391.png", record_pos=(-0.433, -0.831), resolution=(720, 1280))):
+            touch(Template(r"tpl1747968762221.png", record_pos=(-0.433, -0.829), resolution=(720, 1280)))
+     if exists(Template(r"tpl1749031690534.png", record_pos=(-0.438, -0.829), resolution=(720, 1280))):
+            touch(Template(r"tpl1749031701656.png", record_pos=(-0.433, -0.828), resolution=(720, 1280)))  
+     
 
 def mining(username):
     #进入挖矿界面
@@ -294,20 +315,13 @@ def mining(username):
     #广告判断
     #如果没有识别到挖矿成功，则表示有广告
     if not exists(Template(r"tpl1746185085005.png", record_pos=(-0.213, -0.137), resolution=(540, 960))):
-        sleep(30)
-        # 等待10秒广告结束
-        if exists(Template(r"tpl1746184976411.png", record_pos=(0.444, -0.837), resolution=(540, 960))):
-            touch(Template(r"tpl1746184976411.png", record_pos=(0.444, -0.837), resolution=(540, 960)))
-        # 等待20秒广告结束
-        if exists(Template(r"tpl1747885110731.png", record_pos=(0.436, -0.829), resolution=(720, 1280))):
-            touch(Template(r"tpl1747885122130.png", record_pos=(0.436, -0.826), resolution=(720, 1280)))
-            
-        if exists(Template(r"tpl1747968753391.png", record_pos=(-0.433, -0.831), resolution=(720, 1280))):
-            touch(Template(r"tpl1747968762221.png", record_pos=(-0.433, -0.829), resolution=(720, 1280)))
-        if exists(Template(r"tpl1748004705951.png", record_pos=(0.436, -0.829), resolution=(720, 1280))):
-            touch(Template(r"tpl1748004735948.png", record_pos=(0.438, -0.822), resolution=(720, 1280)))
-        if exists(Template(r"tpl1749031690534.png", record_pos=(-0.438, -0.829), resolution=(720, 1280))):
-            touch(Template(r"tpl1749031701656.png", record_pos=(-0.433, -0.828), resolution=(720, 1280)))  
+        while True:
+            close_ad();
+            if exists(Template(r"tpl1746185085005.png", record_pos=(-0.213, -0.137), resolution=(540, 960))):
+                print("已关闭广告")
+                break;
+            print("继续循环等待广告关闭")
+            sleep(1);
     if exists(Template(r"tpl1746071273331.png", record_pos=(-0.439, -0.778), resolution=(540, 960))):
         touch(Template(r"tpl1745325279982.png", record_pos=(-0.429, -0.858), resolution=(1176, 2400)))
     sleep(1)
@@ -359,12 +373,12 @@ for username, password in accounts:
     #is_need_kyc = False
    
     # 获取积分数值
-    get_points(username)
+#     get_points(username)
     # 领取空头
 #     get_claim(username)
     # 点击进行个人中心
     #领取奖励
-    get_free_points(username)
+#     get_free_points(username)
     touch(Template(r"tpl1745325286159.png", record_pos=(-0.419, -0.884), resolution=(1176, 2400)))
 
     # 如果第一次需要kyc认证，则配置挖矿时间
@@ -378,11 +392,16 @@ for username, password in accounts:
       touch(Template(r"tpl1745500552334.png", record_pos=(0.001, 0.35), resolution=(1080, 2412)))
 
     # 点击退出登录
-    touch(Template(r"tpl1746187685059.png", record_pos=(-0.339, 0.85), resolution=(540, 960)))
+    touch(Template(r"tpl1749272834858.png", record_pos=(-0.336, 0.839), resolution=(720, 1280)))
     sleep(1.5)
     # 点击确认退出登录
     touch(Template(r"tpl1745410887477.png", record_pos=(-0.001, 0.403), resolution=(1080, 2412)))
     sleep(2)
+
+
+
+
+
 
 
 
