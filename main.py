@@ -73,6 +73,13 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 find_words_path = os.path.join(current_dir, "find_words.py")
 touch_words_path = os.path.join(current_dir, "touch_words.py")
 
+
+get_claims = getattr(import_script(os.path.join(current_dir, "./get_claims.air/get_claims.py")), "get_claims", None)
+
+close_ad  = getattr(import_script(os.path.join(current_dir, "./close_ad.air/close_ad.py")), "close_ad", None)
+
+
+
 # 优化提取的函数: 返回到挖矿界面
 def return_to_mining():
     # 点击返回
@@ -161,34 +168,34 @@ def kyc_ocr(find_words_path, username):
     return False
 
 accounts = [
-    ("dingxueke1025@gmail.com", "Dingxueke@520"),
-    ("fairwickcelia@gmail.com", "fairwickcelia@520"),
-    ("chaoliushishangfaner@gmail.com", "Fangweicong@520"),
-    ("chaoliushishangfanerbtc@gmail.com",        "chaoliushishangfanbtc@gmail.com"),
-    ("dingxueke001@outlook.com", "dingxuke@001"),
-    ("fangweicong1001@outlook.com", "fangweicong1001@520"),
-    ("fangweicong1002@outlook.com", "fangweicong1002@520"),
-    ("fangweicong1003@outlook.com", "Fangweicong1003@520"),
-    ("fangweicong1004@outlook.com", "fangweicong1004@520"),
-    ("fangweicong1005@outlook.com", "fangweicong@1005"),
-    ("fangweicong1006@outlook.com", "fangweicong@1006"),
-    ("fangweicong1007@outlook.com", "fangweicong@1007"),
-    ("fangweicong1009@outlook.com", "Fangweicong@1009"),
-    ("fangweicong001@gmail.com", "fangweicong001@520"),
-    ("fangweicong002@gmail.com", "fangweicong002@520"),
-    ("fangweicong003@gmail.com", "fangweicong003@520"),
-    ("fangweicong004@gmail.com", "fangweicong004@520"),
-    ("fangweicong005@gmail.com", "fangweicong005@520"),
-    ("fangweicong006@gmail.com", "fangweicong006@520"),
-    ("fangweicong007@gmail.com", "fangweicong007@520"),
-    ("fangweicong008@gmail.com", "fangweicong008@520"),
+#     ("dingxueke1025@gmail.com", "Dingxueke@520"),
+#     ("fairwickcelia@gmail.com", "fairwickcelia@520"),
+#     ("chaoliushishangfaner@gmail.com", "Fangweicong@520"),
+#     ("chaoliushishangfanerbtc@gmail.com",        "chaoliushishangfanbtc@gmail.com"),
+#     ("dingxueke001@outlook.com", "dingxuke@001"),
+#     ("fangweicong1001@outlook.com", "fangweicong1001@520"),
+#     ("fangweicong1002@outlook.com", "fangweicong1002@520"),
+#     ("fangweicong1003@outlook.com", "Fangweicong1003@520"),
+#     ("fangweicong1004@outlook.com", "fangweicong1004@520"),
+#     ("fangweicong1005@outlook.com", "fangweicong@1005"),
+#     ("fangweicong1006@outlook.com", "fangweicong@1006"),
+#     ("fangweicong1007@outlook.com", "fangweicong@1007"),
+#     ("fangweicong1009@outlook.com", "Fangweicong@1009"),
+#     ("fangweicong001@gmail.com", "fangweicong001@520"),
+#     ("fangweicong002@gmail.com", "fangweicong002@520"),
+#     ("fangweicong003@gmail.com", "fangweicong003@520"),
+#     ("fangweicong004@gmail.com", "fangweicong004@520"),
+#     ("fangweicong005@gmail.com", "fangweicong005@520"),
+#     ("fangweicong006@gmail.com", "fangweicong006@520"),
+#     ("fangweicong007@gmail.com", "fangweicong007@520"),
+#     ("fangweicong008@gmail.com", "fangweicong008@520"),
     
-    ("jegefec313@magpit.com", "Fangweicong@520"),
-    ("ponoyo3578@daupload.com", "Fangweicong@520"),
-    ("yijebix832@jazipo.com", "Fangweicong@520"),
-    ("jasapoy911@bamsrad.com", "Fangweicong@520"),
-    ("selid55081@deusa7.com", "Fangweicong@520"),
-    ("doroye5846@daupload.com", "Fangweicong@520"),
+#     ("jegefec313@magpit.com", "Fangweicong@520"),
+#     ("ponoyo3578@daupload.com", "Fangweicong@520"),
+#     ("yijebix832@jazipo.com", "Fangweicong@520"),
+#     ("jasapoy911@bamsrad.com", "Fangweicong@520"),
+#     ("selid55081@deusa7.com", "Fangweicong@520"),
+#     ("doroye5846@daupload.com", "Fangweicong@520"),
     ("katikar837@jazipo.com", "Fangweicong@520"),
     ("womabe5305@inkight.com", "Fangweicong@520"),
     ("lecatix608@hazhab.com", "Fangweicong@520"),
@@ -249,113 +256,6 @@ def get_points(account):
     with open(filename, "a") as f:
         f.write(f"{account} 积分数值为: {points_str}\n")
 
-        
-def get_claim(account):
-     touch(Template(r"tpl1748247257220.png", record_pos=(0.078, 0.275), resolution=(720, 1280)))
-     if exists(Template(r"tpl1748247293687.png", record_pos=(-0.211, -0.147), resolution=(720, 1280))):
-        touch(Template(r"tpl1748247293687.png", record_pos=(-0.211, -0.147), resolution=(720, 1280)))
-        #滚动到底部
-        swipe(Template(r"tpl1749723907461.png", record_pos=(-0.384, 0.17), resolution=(900, 1600)), vector=[-0.1264, -0.3531])
-
-        #循环点击四次
-        
-        if exists(Template(r"tpl1749358296726.png", record_pos=(0.284, 0.208), resolution=(900, 1600))):
-                #follow
-                touch(Template(r"tpl1749358302729.png", record_pos=(0.288, 0.21), resolution=(900, 1600)))
-                sleep(3)
-                keyevent("BACK")
-        if exists(Template(r"tpl1749358296726.png", record_pos=(0.284, 0.208), resolution=(900, 1600))):
-                #follow
-                touch(Template(r"tpl1749358302729.png", record_pos=(0.288, 0.21), resolution=(900, 1600)))
-                sleep(3)
-                keyevent("BACK")  
-        if exists(Template(r"tpl1749358359870.png", record_pos=(0.286, 0.477), resolution=(900, 1600))):
-                #follow
-                touch(Template(r"tpl1749358374825.png", record_pos=(0.284, 0.478), resolution=(900, 1600)))
-                sleep(3)
-                keyevent("BACK")
-                
-        if exists(Template(r"tpl1749358312707.png", record_pos=(0.283, 0.078), resolution=(900, 1600))):
-                #follow
-                touch(Template(r"tpl1749358312707.png", record_pos=(0.283, 0.078), resolution=(900, 1600)))
-                sleep(3)
-                keyevent("BACK")
-        
-        if exists(Template(r"tpl1749358312707.png", record_pos=(0.283, 0.078), resolution=(900, 1600))):
-                #follow
-                touch(Template(r"tpl1749358312707.png", record_pos=(0.283, 0.078), resolution=(900, 1600)))
-                sleep(3)
-                keyevent("BACK")
-                
-        if exists(Template(r"tpl1749723705202.png", record_pos=(0.283, 0.457), resolution=(900, 1600))):
-                #follow
-                touch(Template(r"tpl1749723705202.png", record_pos=(0.283, 0.457), resolution=(900, 1600)))
-                sleep(3)
-                keyevent("BACK")
-                
-        if exists(Template(r"tpl1749723762992.png", record_pos=(0.283, 0.076), resolution=(900, 1600))):
-                #follow
-                touch(Template(r"tpl1749723762992.png", record_pos=(0.283, 0.076), resolution=(900, 1600)))
-                sleep(3)
-                keyevent("BACK")
-                 
-        if exists(Template(r"tpl1748248814043.png", record_pos=(0.301, 0.374), resolution=(720, 1280))):
-                #tweet
-                touch(Template(r"tpl1748248814043.png", record_pos=(0.301, 0.374), resolution=(720, 1280)))
-                sleep(3)
-                keyevent("BACK")
-        
-        if exists(Template(r"tpl1748249041841.png", record_pos=(-0.006, 0.796), resolution=(720, 1280))):
-            touch(Template(r"tpl1748249041841.png", record_pos=(-0.006, 0.796), resolution=(720, 1280)))
-          
-        while True:
-              close_ad()
-              sleep(2)
-              if exists(Template(r"tpl1749362443543.png", record_pos=(-0.431, -0.797), resolution=(900, 1600))):
-                print("空头领取成功")
-                break;
-     else:
-        keyevent("BACK")
-     sleep(2)
-
-
-def close_ad():
-     
-     if exists(Template(r"tpl1746184976411.png", record_pos=(0.444, -0.837), resolution=(540, 960))):
-            touch(Template(r"tpl1746184976411.png", record_pos=(0.444, -0.837), resolution=(540, 960)))
-            return
-        # 等待20秒广告结束
-     if exists(Template(r"tpl1747885110731.png", record_pos=(0.436, -0.829), resolution=(720, 1280))):
-            touch(Template(r"tpl1747885122130.png", record_pos=(0.436, -0.826), resolution=(720, 1280)))
-            return
-     if exists(Template(r"tpl1747968753391.png", record_pos=(-0.433, -0.831), resolution=(720, 1280))):
-            touch(Template(r"tpl1747968762221.png", record_pos=(-0.433, -0.829), resolution=(720, 1280)))
-     if exists(Template(r"tpl1749031690534.png", record_pos=(-0.438, -0.829), resolution=(720, 1280))):
-            touch(Template(r"tpl1749031701656.png", record_pos=(-0.433, -0.828), resolution=(720, 1280)))
-            return
-     if exists(Template(r"tpl1749363097708.png", record_pos=(0.456, -0.838), resolution=(900, 1600))):
-            touch(Template(r"tpl1749363097708.png", record_pos=(0.456, -0.838), resolution=(900, 1600)))
-            return
-     if exists(Template(r"tpl1749364027042.png", record_pos=(0.446, -0.838), resolution=(900, 1600))):
-            touch(Template(r"tpl1749364032434.png", record_pos=(0.448, -0.836), resolution=(900, 1600)))
-            return
-     if exists(Template(r"tpl1749394747977.png", record_pos=(-0.237, 0.758), resolution=(900, 1600))):
-            touch(Template(r"tpl1749394747977.png", record_pos=(-0.237, 0.758), resolution=(900, 1600)))
-            return
-     if exists(Template(r"tpl1749898039416.png", record_pos=(0.446, -0.839), resolution=(900, 1600))):
-            touch(Template(r"tpl1749898039416.png", record_pos=(0.446, -0.839), resolution=(900, 1600)))
-            return
-     if exists(Template(r"tpl1749708765909.png", record_pos=(-0.237, 0.782), resolution=(900, 1600))):
-            touch(Template(r"tpl1749708765909.png", record_pos=(-0.237, 0.782), resolution=(900, 1600)))
-            return
-     if exists(Template(r"tpl1749780776910.png", record_pos=(-0.281, 0.629), resolution=(900, 1600))):
-            touch(Template(r"tpl1749780776910.png", record_pos=(-0.281, 0.629), resolution=(900, 1600)))
-            return
-     if exists(Template(r"tpl1748004705951.png", record_pos=(0.436, -0.829), resolution=(720, 1280))):
-            touch(Template(r"tpl1748004735948.png", record_pos=(0.438, -0.822), resolution=(720, 1280)))
-            return
-        # 等待10秒广告结束
-
 def mining(username):
     #进入挖矿界面
     return_to_mining()
@@ -372,6 +272,7 @@ def mining(username):
         sleep(10)
         while True:
             close_ad();
+            sleep(1)
             if exists(Template(r"tpl1746185085005.png", record_pos=(-0.213, -0.137), resolution=(540, 960))):
                 print("已关闭广告")
                 break;
@@ -422,7 +323,7 @@ for username, password in accounts:
     # 获取积分数值
 #     get_points(username)
     # 领取空头
-#     get_claim(username)
+    get_claims(1)
     # 点击进行个人中心
     touch(Template(r"tpl1745325286159.png", record_pos=(-0.419, -0.884), resolution=(1176, 2400)))
 
