@@ -46,3 +46,4 @@ def close_ad():
             return
         # 等待10秒广告结束
 
+
