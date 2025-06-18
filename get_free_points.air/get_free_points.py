@@ -8,6 +8,20 @@ auto_setup(__file__)
 package = G.DEVICE.get_top_activity()[0]
 import importlib.util
 
+# 改进的导入脚本函数，确保设备上下文传递
+def import_script(script_path):
+    print(f"导入脚本: {script_path}")
+    spec = importlib.util.spec_from_file_location("script", script_path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    
+    # 确保导入的模块使用相同的设备实例
+    if hasattr(G, 'DEVICE') and G.DEVICE:
+        module_globals = getattr(module, 'G', None)
+        if module_globals and not hasattr(module_globals, 'DEVICE'):
+            setattr(module_globals, 'DEVICE', G.DEVICE)
+    
+    return module
 
 # 获取脚本所在目录
 current_dir = os.path.dirname(os.path.abspath(__file__))
