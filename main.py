@@ -73,7 +73,6 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 find_words_path = os.path.join(current_dir, "find_words.py")
 touch_words_path = os.path.join(current_dir, "touch_words.py")
 
-
 get_claims = getattr(import_script(os.path.join(current_dir, "./get_claims.air/get_claims.py")), "get_claims", None)
 
 close_ad  = getattr(import_script(os.path.join(current_dir, "./close_ad.air/close_ad.py")), "close_ad", None)
@@ -196,14 +195,14 @@ accounts = [
 #     ("jasapoy911@bamsrad.com", "Fangweicong@520"),
 #     ("selid55081@deusa7.com", "Fangweicong@520"),
 #     ("doroye5846@daupload.com", "Fangweicong@520"),
-    ("katikar837@jazipo.com", "Fangweicong@520"),
-    ("womabe5305@inkight.com", "Fangweicong@520"),
-    ("lecatix608@hazhab.com", "Fangweicong@520"),
-    ("xodila4171@magpit.com", "Fangweicong@520"),
-    ("moreki9303@daupload.com", "Fangweicong@520"),
-    ("jomol30718@daupload.com", "Fangweicong@520"),
-    ("bejim48324@neuraxo.com", "Fangweicong@520"),
-    ("repovor207@deusa7.com", "Fangweicong@520"),
+#     ("katikar837@jazipo.com", "Fangweicong@520"),
+#     ("womabe5305@inkight.com", "Fangweicong@520"),
+#     ("lecatix608@hazhab.com", "Fangweicong@520"),
+#     ("xodila4171@magpit.com", "Fangweicong@520"),
+#     ("moreki9303@daupload.com", "Fangweicong@520"),
+#     ("jomol30718@daupload.com", "Fangweicong@520"),
+#     ("bejim48324@neuraxo.com", "Fangweicong@520"),
+#     ("repovor207@deusa7.com", "Fangweicong@520"),
     ("vibajo9124@deusa7.com", "Fangweicong@520"),
     ("nifape9682@magpit.com", "Fangweicong@520"),
     ("famex75907@magpit.com", "Fangweicong@520"),

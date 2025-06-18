@@ -11,7 +11,7 @@ def close_ad():
             return
         # 等待20秒广告结束
      if exists(Template(r"tpl1747885110731.png", record_pos=(0.436, -0.829), resolution=(720, 1280))):
-            touch(Template(r"tpl1747885122130.png", record_pos=(0.436, -0.826), resolution=(720, 1280)))
+            touch(Template(r"tpl1747885110731.png", record_pos=(0.436, -0.829), resolution=(720, 1280)))
             return
      if exists(Template(r"tpl1747968753391.png", record_pos=(-0.433, -0.831), resolution=(720, 1280))):
             touch(Template(r"tpl1747968762221.png", record_pos=(-0.433, -0.829), resolution=(720, 1280)))

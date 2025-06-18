@@ -107,7 +107,7 @@ def do_close():
     
      return True
 
-get_claims(1);
+# get_claims(1);
 # close_ad_func()
 
 
