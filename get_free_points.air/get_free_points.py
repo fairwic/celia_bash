@@ -54,6 +54,13 @@ def get_free_points():
                 print("有倒计时表示关闭广告成功")
                 keyevent("BACK")
                 break;
+               else:
+                if  exists(Template(r"tpl1750265526065.png", record_pos=(0.082, 0.399), resolution=(720, 1280))):
+                  print("有倒计时表示关闭广告成功")
+                  keyevent("BACK")
+                  break;
+                
+                
              break;
            else:
             break;
@@ -74,7 +81,7 @@ while True:
          start_app(package)
          
          while True:
-            if not exists(Template(r"tpl1750213494946.png", record_pos=(0.306, -0.796), resolution=(900, 1600))):
+            if not exists(Template(r"tpl1750265679140.png", record_pos=(0.429, -0.781), resolution=(720, 1280))):
             
               if exists(Template(r"tpl1749108234200.png", record_pos=(0.347, -0.856), resolution=(720, 1280))):
                  touch(Template(r"tpl1749108245783.png", record_pos=(0.457, -0.853), resolution=(720, 1280)))
@@ -86,6 +93,7 @@ while True:
                 sleep(20)
                 break;
      sleep(3)
+
 
 
 
