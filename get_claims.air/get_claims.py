@@ -101,14 +101,20 @@ def do_close():
                 print("空头领取成功")
                 break;
      else:
-        if exists(Template(r"tpl1749362443543.png", record_pos=(-0.431, -0.797), resolution=(900, 1600))):
-                print("空头领取失败了")
-                do_close()
+           if not exists(Template(r"tpl1750213494946.png", record_pos=(0.306, -0.796), resolution=(900, 1600))):
+            
+              if exists(Template(r"tpl1749108234200.png", record_pos=(0.347, -0.856), resolution=(720, 1280))):
+                 touch(Template(r"tpl1749108245783.png", record_pos=(0.457, -0.853), resolution=(720, 1280)))
+              if exists(Template(r"tpl1749395723999.png", record_pos=(0.362, -0.841), resolution=(900, 1600))):
+                 touch(Template(r"tpl1749395730238.png", record_pos=(0.446, -0.841), resolution=(900, 1600)))
+              print("app启动")
+           do_close()
     
      return True
 
 # get_claims(1);
 # close_ad_func()
+
 
 
 
