@@ -79,20 +79,22 @@ while True:
          #重新打开应用
          sleep(1)
          start_app(package)
+         sleep(20)
          
          while True:
             if not exists(Template(r"tpl1750265679140.png", record_pos=(0.429, -0.781), resolution=(720, 1280))):
             
               if exists(Template(r"tpl1749108234200.png", record_pos=(0.347, -0.856), resolution=(720, 1280))):
-                 touch(Template(r"tpl1749108245783.png", record_pos=(0.457, -0.853), resolution=(720, 1280)))
+                 touch(Template(r"tpl1750349642483.png", record_pos=(0.431, -0.828), resolution=(720, 1280)))
               if exists(Template(r"tpl1749395723999.png", record_pos=(0.362, -0.841), resolution=(900, 1600))):
                  touch(Template(r"tpl1749395730238.png", record_pos=(0.446, -0.841), resolution=(900, 1600)))
               print("继续等待app启动")
             else:
                 print("启动app成功")
-                sleep(20)
+                sleep(10)
                 break;
      sleep(3)
+
 
 
 
