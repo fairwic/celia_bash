@@ -5,6 +5,8 @@ from airtest.core.api import *
 from airtest.aircv import *
 import sys
 import os
+import time
+import shutil
 import importlib.util
 try:
     from paddleocr import PaddleOCR
@@ -21,6 +23,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
 auto_setup(__file__)
+
 
 # 确保设备已连接
 def connect_to_device(max_retries=3):
@@ -52,6 +55,8 @@ def connect_to_device(max_retries=3):
 if not connect_to_device():
     print("程序退出")
     sys.exit(1)
+# 获取当前运行的应用包名
+package = G.DEVICE.get_top_activity()[0]
 
 # 改进的导入脚本函数，确保设备上下文传递
 def import_script(script_path):
@@ -166,61 +171,7 @@ def kyc_ocr(find_words_path, username):
         return True
     return False
 
-accounts = [
-#     ("dingxueke1025@gmail.com", "Dingxueke@520"),
-#     ("fairwickcelia@gmail.com", "fairwickcelia@520"),
-#     ("chaoliushishangfaner@gmail.com", "Fangweicong@520"),
-#     ("chaoliushishangfanerbtc@gmail.com",        "chaoliushishangfanbtc@gmail.com"),
-#     ("dingxueke001@outlook.com", "dingxuke@001"),
-#     ("fangweicong1001@outlook.com", "fangweicong1001@520"),
-#     ("fangweicong1002@outlook.com", "fangweicong1002@520"),
-#     ("fangweicong1003@outlook.com", "Fangweicong1003@520"),
-#     ("fangweicong1004@outlook.com", "fangweicong1004@520"),
-#     ("fangweicong1005@outlook.com", "fangweicong@1005"),
-#     ("fangweicong1006@outlook.com", "fangweicong@1006"),
-#     ("fangweicong1007@outlook.com", "fangweicong@1007"),
-#     ("fangweicong1009@outlook.com", "Fangweicong@1009"),
-#     ("fangweicong001@gmail.com", "fangweicong001@520"),
-#     ("fangweicong002@gmail.com", "fangweicong002@520"),
-#     ("fangweicong003@gmail.com", "fangweicong003@520"),
-#     ("fangweicong004@gmail.com", "fangweicong004@520"),
-#     ("fangweicong005@gmail.com", "fangweicong005@520"),
-#     ("fangweicong006@gmail.com", "fangweicong006@520"),
-#     ("fangweicong007@gmail.com", "fangweicong007@520"),
-#     ("fangweicong008@gmail.com", "fangweicong008@520"),
-    
-#     ("jegefec313@magpit.com", "Fangweicong@520"),
-#     ("ponoyo3578@daupload.com", "Fangweicong@520"),
-#     ("yijebix832@jazipo.com", "Fangweicong@520"),
-#     ("jasapoy911@bamsrad.com", "Fangweicong@520"),
-#     ("selid55081@deusa7.com", "Fangweicong@520"),
-#     ("doroye5846@daupload.com", "Fangweicong@520"),
-#     ("katikar837@jazipo.com", "Fangweicong@520"),
-#     ("womabe5305@inkight.com", "Fangweicong@520"),
-#     ("lecatix608@hazhab.com", "Fangweicong@520"),
-#     ("xodila4171@magpit.com", "Fangweicong@520"),
-#     ("moreki9303@daupload.com", "Fangweicong@520"),
-#     ("jomol30718@daupload.com", "Fangweicong@520"),
-#     ("bejim48324@neuraxo.com", "Fangweicong@520"),
-#     ("repovor207@deusa7.com", "Fangweicong@520"),
-#     ("vibajo9124@deusa7.com", "Fangweicong@520"),
-#     ("nifape9682@magpit.com", "Fangweicong@520"),
-#     ("famex75907@magpit.com", "Fangweicong@520"),
-#     ("hosikay163@jazipo.com", "Fangweicong@520"),
-#     ("masak12502@daupload.com", "Fangweicong@520"),
-#     ("saboy52131@neuraxo.com", "Fangweicong@520"),
-#     ("xaxela8839@daupload.com", "Fangweicong@520"),
-    ("posajo3690@magpit.com", "Fangweicong@520"),
-    ("piwobo5616@neuraxo.com", "Fangweicong@520"),
-    ("geviy27225@hazhab.com", "Fangweicong@520"),
-    ("tojowab604@ofular.com", "Fangweicong@520"),
-    ("henate8884@nomrista.com", "Fangweicong@520"),
-    ("camim87364@pricegh.com", "Fangweicong@520"),
-    ("joyoje5804@ofular.com", "Fangweicong@520"),
-    ("colexo7870@pricegh.com", "Fangweicong@520"),
-    ("xaleha4786@pricegh.com", "Fangweicong@520"),
-    ("deted90896@dlbazi.com", "Fangweicong@520"),
-]
+
 
 def get_points(account):
     #采集到积分数值
@@ -234,7 +185,7 @@ def get_points(account):
     pil_image.save(filename, quality=99, optimize=True)
     print(f"截图保存至: {filename}")
     # 裁剪积分区域（左上x, 左上y, 右下x, 右下y）
-    crop_box = (10, 200, 700, 380)  # 这里的坐标需要你根据实际图片调整
+    crop_box = (10, 250, 700, 420)  # 这里的坐标需要你根据实际图片调整
     cropped_image = pil_image.crop(crop_box)
     # cropped_image = image.crop(crop_box)
     # 可选：保存裁剪后的图片，方便调试
@@ -282,15 +233,8 @@ def mining(username):
     sleep(1)
     return is_need_kyc
 
-
-#--------------
-for username, password in accounts:
-    #输出日志
-    print(f"开始登录账号: {username}")
-    print(f"密码: {password}")
-    sleep(2)
-
-    #如果存在skip，则点击skip
+def login (username,password):
+     #如果存在skip，则点击skip
     if exists(Template(r"tpl1745326722221.png", record_pos=(0.003, 0.954), resolution=(1176, 2400))):
         touch(Template(r"tpl1745326722221.png", record_pos=(0.003, 0.954), resolution=(1176, 2400)))
     #点击我已有账号
@@ -312,19 +256,21 @@ for username, password in accounts:
     #等待1秒
     sleep(1)
 
+    if exists(Template(r"tpl1749108234200.png", record_pos=(0.347, -0.856), resolution=(720, 1280))):
+        touch(Template(r"tpl1749108245783.png", record_pos=(0.457, -0.853), resolution=(720, 1280)))
+    if exists(Template(r"tpl1749395723999.png", record_pos=(0.362, -0.841), resolution=(900, 1600))):
+        touch(Template(r"tpl1749395730238.png", record_pos=(0.446, -0.841), resolution=(900, 1600)))
+    if exists(Template(r"tpl1745325286159.png", record_pos=(-0.419, -0.884), resolution=(1176, 2400))):
+        print("login success !!!!")
     #如果提示了是否保存密码，点击不保存
 #     if exists(Template(r"tpl1745325225896.png", record_pos=(0.002, 0.878), resolution=(1176, 2400))):
 #         touch(Template(r"tpl1745325225896.png", record_pos=(0.002, 0.878), resolution=(1176, 2400)))
-    #挖矿
-    is_need_kyc = mining(username)
-    is_need_kyc = False
-   
-    # 获取积分数值
-#     get_points(username)
-    # 领取空头
-    get_claims(1)
-    # 点击进行个人中心
+#--------------
+
+def logout(is_need_kyc):
+        # 点击进行个人中心
     touch(Template(r"tpl1745325286159.png", record_pos=(-0.419, -0.884), resolution=(1176, 2400)))
+    sleep(1)
 
     # 如果第一次需要kyc认证，则配置挖矿时间
     if is_need_kyc:
@@ -332,7 +278,7 @@ for username, password in accounts:
       touch(Template(r"tpl1745500502574.png", record_pos=(-0.119, 0.369), resolution=(1080, 2412)))
       sleep(2)
       touch(Template(r"tpl1749362853264.png", record_pos=(-0.248, 0.203), resolution=(900, 1600)))
-      sleep(1)
+      sleep(2)
       #完成配置
       touch(Template(r"tpl1749363789085.png", record_pos=(-0.002, 0.384), resolution=(900, 1600)))
 
@@ -344,6 +290,180 @@ for username, password in accounts:
     # 点击确认退出登录
     touch(Template(r"tpl1745410887477.png", record_pos=(-0.001, 0.403), resolution=(1080, 2412)))
     sleep(2)
+
+def all_process(username,password):
+    print("开始登录---------------")
+    login(username,password)
+    #挖矿
+    print("开始挖矿----------------")
+    is_need_kyc = mining(username)
+    is_need_kyc = False
+    # 获取积分数值
+    print("开始获取积分数值-------------")
+    get_points(username)
+    # 领取空头
+    print("开始领取空头--------------------")
+    get_claims(1)
+    sleep(2)
+
+# 获取当天的账号文件名
+def get_today_accounts_file():
+    """获取当天日期的账号文件名"""
+    today = time.strftime("%Y%m%d", time.localtime())
+    return os.path.join(current_dir, f"accounts_{today}.txt")
+
+# 创建当天的账号文件
+def create_today_accounts_file():
+    """从accounts_data.txt拷贝到当天的账号文件"""
+    source_file = os.path.join(current_dir, "accounts_data.txt")
+    today_file = get_today_accounts_file()
+    
+    # 如果当天的文件已经存在，就不需要重新拷贝
+    if os.path.exists(today_file):
+        print(f"当天账号文件已存在: {today_file}")
+        return today_file
+    
+    # 检查源文件是否存在
+    if not os.path.exists(source_file):
+        print(f"源账号文件不存在: {source_file}")
+        return None
+    
+    try:
+        # 拷贝文件
+        shutil.copy2(source_file, today_file)
+        print(f"已创建当天账号文件: {today_file}")
+        return today_file
+    except Exception as e:
+        print(f"创建当天账号文件时出错: {e}")
+        return None
+
+# 从文件读取账号信息
+def load_accounts():
+    """从当天的账号文件中读取账号信息"""
+    accounts = []
+    accounts_file = get_today_accounts_file()
+    
+    if not os.path.exists(accounts_file):
+        print(f"当天账号文件不存在: {accounts_file}")
+        return accounts
+    
+    try:
+        with open(accounts_file, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+            for line in lines:
+                line = line.strip()
+                if line and not line.startswith('#'):  # 跳过空行和注释行
+                    parts = line.split(',')
+                    if len(parts) == 2:
+                        username, password = parts[0].strip(), parts[1].strip()
+                        accounts.append((username, password))
+                    else:
+                        print(f"跳过格式错误的行: {line}")
+    except Exception as e:
+        print(f"读取账号文件时出错: {e}")
+    
+    return accounts
+
+# 删除已处理的账号
+def remove_processed_account(username):
+    """从当天的账号文件中删除已处理的账号"""
+    accounts_file = get_today_accounts_file()
+    
+    if not os.path.exists(accounts_file):
+        return
+    
+    try:
+        # 读取所有行
+        with open(accounts_file, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+        
+        # 过滤掉要删除的账号
+        new_lines = []
+        for line in lines:
+            line_stripped = line.strip()
+            if line_stripped and not line_stripped.startswith('#'):
+                parts = line_stripped.split(',')
+                if len(parts) == 2 and parts[0].strip() == username:
+                    print(f"删除已处理的账号: {username}")
+                    continue  # 跳过这一行，即删除它
+            new_lines.append(line)
+        
+        # 写回文件
+        with open(accounts_file, 'w', encoding='utf-8') as f:
+            f.writelines(new_lines)
+            
+    except Exception as e:
+        print(f"删除账号时出错: {e}")
+
+# 在开始处理前，创建当天的账号文件
+print("正在初始化当天的账号文件...")
+today_accounts_file = create_today_accounts_file()
+if not today_accounts_file:
+    print("无法创建当天的账号文件，程序退出")
+    sys.exit(1)
+
+# 主处理循环
+while True:
+    # 从文件加载账号列表
+    accounts = load_accounts()
+    
+    if not accounts:
+        print("没有可处理的账号，程序结束")
+        break
+    
+    # 取第一个账号进行处理
+    username, password = accounts[0]
+    #输出日志
+    print(f"开始登录账号: {username}")
+    print(f"密码: {password}")
+    sleep(2)
+    
+    # 处理当前账号的标志
+    account_processed = False
+    
+    #登录
+    # 增加重试机制
+    #增加重试机制
+    for i in range(3):
+        try:
+            all_process(username,password)
+            #退出登录
+            logout(False)
+            account_processed = True
+            break
+        except Exception as e:
+            print(f"发生错误了: {e}")
+            if exists(Template(r"tpl1751548826510.png", record_pos=(-0.358, 0.494), resolution=(900, 1600))):
+            #回到了主页
+                start_app(package)
+            if exists(Template(r"tpl1751548999304.png", record_pos=(0.003, -0.586), resolution=(900, 1600))):
+            # 卡在了挖矿页面
+             keyevent("back")
+            if exists(Template(r"tpl1745325286159.png", record_pos=(-0.419, -0.884), resolution=(1176, 2400))):
+               #退出登录
+               logout(False)
+            sleep(1)
+        continue
+    
+    # 如果账号处理成功，从文件中删除该账号
+    if account_processed:
+        remove_processed_account(username)
+        print(f"账号 {username} 处理完成并已从列表中删除")
+    else:
+        print(f"账号 {username} 处理失败，跳过删除")
+        # 如果处理失败，也可以选择删除，避免无限循环
+        # remove_processed_account(username)
+
+
+
+
+
+
+
+
+
+
+
 
 
 

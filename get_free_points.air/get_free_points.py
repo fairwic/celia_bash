@@ -36,21 +36,22 @@ def get_free_points():
         sleep(2)
         while True:
         #如果不存在倒计时
-          if not exists(Template(r"tpl1749280570615.png", record_pos=(-0.094, 0.557), resolution=(900, 1600))):
+          if not exists(Template(r"tpl1751386917466.png", record_pos=(-0.108, 0.557), resolution=(900, 1600))):
            #点击广告
            if exists(Template(r"tpl1749104784991.png", record_pos=(-0.01, 0.74), resolution=(720, 1280))):
              touch(Template(r"tpl1749104784991.png", record_pos=(-0.01, 0.74), resolution=(720, 1280)))
-             sleep(3)
+             sleep(5)
 
              #如何还在这个页面说明卡住了，退出
              if exists(Template(r"tpl1749104784991.png", record_pos=(-0.01, 0.74), resolution=(720, 1280))):
                # 关闭当前应用
                stop_app(package)
                return False;
-
+             i=0
              while True:
                close_ad_func();
-               if  exists(Template(r"tpl1749280595234.png", record_pos=(-0.089, 0.557), resolution=(900, 1600))):
+               i=i+1
+               if  exists(Template(r"tpl1751386917466.png", record_pos=(-0.108, 0.557), resolution=(900, 1600))):
                 print("有倒计时表示关闭广告成功")
                 keyevent("BACK")
                 break;
@@ -59,7 +60,9 @@ def get_free_points():
                   print("有倒计时表示关闭广告成功")
                   keyevent("BACK")
                   break;
-                
+                if i >5:
+                  keyevent("BACK")
+                  break;  
                 
              break;
            else:
@@ -79,7 +82,7 @@ while True:
          #重新打开应用
          sleep(1)
          start_app(package)
-         
+         sleep(10)
          while True:
             if not exists(Template(r"tpl1750265679140.png", record_pos=(0.429, -0.781), resolution=(720, 1280))):
             
@@ -90,9 +93,12 @@ while True:
               print("继续等待app启动")
             else:
                 print("启动app成功")
-                sleep(20)
+                sleep(30)
                 break;
      sleep(3)
+
+
+
 
 
 
