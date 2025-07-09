@@ -51,15 +51,16 @@ def get_free_points():
              while True:
                close_ad_func();
                i=i+1
-               if  exists(Template(r"tpl1751386917466.png", record_pos=(-0.108, 0.557), resolution=(900, 1600))):
+               if  exists(Template(r"tpl1751867660211.png", record_pos=(-0.003, 0.742), resolution=(720, 1280))):
                 print("有倒计时表示关闭广告成功")
                 keyevent("BACK")
                 break;
                else:
                 if  exists(Template(r"tpl1750265526065.png", record_pos=(0.082, 0.399), resolution=(720, 1280))):
                   print("有倒计时表示关闭广告成功")
-                  keyevent("BACK")
                   break;
+                if exists(Template(r"tpl1752078291794.png", record_pos=(-0.358, 0.492), resolution=(900, 1600))):
+                    start_app(package)
                 if i >5:
                   keyevent("BACK")
                   break;  
@@ -96,6 +97,8 @@ while True:
                 sleep(10)
                 break;
      sleep(3)
+
+
 
 
 

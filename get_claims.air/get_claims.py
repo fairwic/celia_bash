@@ -41,7 +41,7 @@ def get_claims(times=1):
         print("times==0")
         break
 
-def do_close():
+def read_claim():
      touch(Template(r"tpl1748247257220.png", record_pos=(0.078, 0.275), resolution=(720, 1280)))
      if not exists(Template(r"tpl1750237729977.png", record_pos=(-0.244, -0.12), resolution=(900, 1600))):
         print("没有空头")
@@ -52,60 +52,99 @@ def do_close():
      touch(Template(r"tpl1750237729977.png", record_pos=(-0.244, -0.12), resolution=(900, 1600)))
      #滚动到底部
      swipe(Template(r"tpl1749723907461.png", record_pos=(-0.384, 0.17), resolution=(900, 1600)), vector=[-0.1264, -0.4531])
+     return True;
+
+def check_error():
+    if not exists(Template(r"tpl1749723907461.png", record_pos=(-0.384, 0.17), resolution=(900, 1600))):
+     sleep(2)
+        
+     if exists(Template(r"tpl1749362443543.png", record_pos=(-0.431, -0.797), resolution=(900, 1600))):
+        if exists(Template(r"tpl1749395723999.png", record_pos=(0.362, -0.841), resolution=(900, 1600))):
+            touch(Template(r"tpl1749395730238.png", record_pos=(0.446, -0.841), resolution=(900, 1600)))
+        
+        
+     if exists(Template(r"tpl1752069558620.png", record_pos=(-0.358, 0.492), resolution=(900, 1600))):   
+        start_app(package)
+        sleep(12)
+        if exists(Template(r"tpl1749108234200.png", record_pos=(0.347, -0.856), resolution=(720, 1280))):
+           touch(Template(r"tpl1750349642483.png", record_pos=(0.431, -0.828), resolution=(720, 1280)))
+        if exists(Template(r"tpl1749395723999.png", record_pos=(0.362, -0.841), resolution=(900, 1600))):
+           touch(Template(r"tpl1749395730238.png", record_pos=(0.446, -0.841), resolution=(900, 1600)))
+        
+     read_claim()   
+def do_close():
+     
+     boolean=read_claim();
+     if boolean==False:
+        return True;
+        
      if exists(Template(r"tpl1751382054859.png", record_pos=(0.287, 0.22), resolution=(900, 1600))):
                 #follow
                 touch(Template(r"tpl1751382054859.png", record_pos=(0.287, 0.22), resolution=(900, 1600)))
-                sleep(3)
+                sleep(2)
                 stop_app(G.DEVICE.get_top_activity()[0])
-     sleep(1)
+                sleep(2)
+                check_error();
      if exists(Template(r"tpl1751382054859.png", record_pos=(0.287, 0.22), resolution=(900, 1600))):
                 #follow
                 touch(Template(r"tpl1751382054859.png", record_pos=(0.287, 0.22), resolution=(900, 1600)))
-                sleep(3)
+                sleep(2)
                 stop_app(G.DEVICE.get_top_activity()[0])
-     sleep(1)  
+                sleep(2)
+                check_error();
      if exists(Template(r"tpl1751382054859.png", record_pos=(0.287, 0.22), resolution=(900, 1600))):
                 #follow
                 touch(Template(r"tpl1751382054859.png", record_pos=(0.287, 0.22), resolution=(900, 1600)))
-                sleep(3)
+                sleep(2)
                 stop_app(G.DEVICE.get_top_activity()[0])
-     sleep(1)  
+                sleep(2)
+                check_error();
      if exists(Template(r"tpl1751384775354.png", record_pos=(0.284, 0.484), resolution=(900, 1600))):
                 #follow
                 touch(Template(r"tpl1751384775354.png", record_pos=(0.284, 0.484), resolution=(900, 1600)))
-                sleep(3)
+                sleep(2)
                 stop_app(G.DEVICE.get_top_activity()[0])
-     sleep(1)  
+                sleep(2)
+                check_error();
      if exists(Template(r"tpl1749358312707.png", record_pos=(0.283, 0.078), resolution=(900, 1600))):
                 #follow
                 touch(Template(r"tpl1749358312707.png", record_pos=(0.283, 0.078), resolution=(900, 1600)))
-                sleep(3)
+                sleep(2)
                 stop_app(G.DEVICE.get_top_activity()[0])
-     sleep(1)  
+                sleep(2)
+                check_error();
      if exists(Template(r"tpl1749358312707.png", record_pos=(0.283, 0.078), resolution=(900, 1600))):
                 #follow
                 touch(Template(r"tpl1749358312707.png", record_pos=(0.283, 0.078), resolution=(900, 1600)))
-                sleep(3)
+                sleep(2)
                 stop_app(G.DEVICE.get_top_activity()[0])
-     sleep(1)  
+                sleep(2)
+                check_error();
+    
      if exists(Template(r"tpl1751384799594.png", record_pos=(0.289, -0.048), resolution=(900, 1600))):
                 #follow
                 touch(Template(r"tpl1751384799594.png", record_pos=(0.289, -0.048), resolution=(900, 1600)))
-                sleep(3)
+                sleep(2)
                 stop_app(G.DEVICE.get_top_activity()[0])
-     sleep(1)  
+                sleep(2)
+                check_error();
+    
      if exists(Template(r"tpl1751119201309.png", record_pos=(0.29, 0.128), resolution=(720, 1280))):
                 #follow
                 touch(Template(r"tpl1751119201309.png", record_pos=(0.29, 0.128), resolution=(720, 1280)))
-                sleep(3)
+                sleep(2)
                 stop_app(G.DEVICE.get_top_activity()[0])
-     sleep(1)  
+                sleep(2)
+                check_error();
+    
      if exists(Template(r"tpl1748248814043.png", record_pos=(0.301, 0.374), resolution=(720, 1280))):
                 #tweet
                 touch(Template(r"tpl1748248814043.png", record_pos=(0.301, 0.374), resolution=(720, 1280)))
-                sleep(3)
+                sleep(2)
                 stop_app(G.DEVICE.get_top_activity()[0])
-     sleep(1)  
+                sleep(2)
+                check_error();
+    
      if exists(Template(r"tpl1748249041841.png", record_pos=(-0.006, 0.796), resolution=(720, 1280))):
             touch(Template(r"tpl1748249041841.png", record_pos=(-0.006, 0.796), resolution=(720, 1280)))
             sleep(9)
@@ -133,6 +172,9 @@ def do_close():
 
 # get_claims(1);
 # close_ad_func()
+
+
+
 
 
 

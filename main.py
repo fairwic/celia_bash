@@ -220,6 +220,9 @@ def mining(username):
     #如果没有识别到挖矿成功，则表示有广告
     if not exists(Template(r"tpl1746185085005.png", record_pos=(-0.213, -0.137), resolution=(540, 960))):
         sleep(10)
+        if exists(Template(r"tpl1746070780815.png", record_pos=(-0.022, -0.569), resolution=(540, 960))):
+        #   抛出异常
+         raise Exception("点击挖矿失败了")
         while True:
             close_ad();
             sleep(1)
@@ -296,7 +299,7 @@ def all_process(username,password):
     login(username,password)
     #挖矿
     print("开始挖矿----------------")
-    is_need_kyc = mining(username)
+#     is_need_kyc = mining(username)
     is_need_kyc = False
     # 获取积分数值
     print("开始获取积分数值-------------")
@@ -424,7 +427,7 @@ while True:
     #登录
     # 增加重试机制
     #增加重试机制
-    for i in range(3):
+    for i in range(5):
         try:
             all_process(username,password)
             #退出登录
@@ -438,7 +441,10 @@ while True:
                 start_app(package)
             if exists(Template(r"tpl1751548999304.png", record_pos=(0.003, -0.586), resolution=(900, 1600))):
             # 卡在了挖矿页面
-             keyevent("back")
+              keyevent("back")
+            if exists(Template(r"tpl1751904566722.png", record_pos=(-0.011, 0.746), resolution=(720, 1280))):
+            # 卡在了登录页面
+              keyevent("back")
             if exists(Template(r"tpl1745325286159.png", record_pos=(-0.419, -0.884), resolution=(1176, 2400))):
                #退出登录
                logout(False)
@@ -453,6 +459,9 @@ while True:
         print(f"账号 {username} 处理失败，跳过删除")
         # 如果处理失败，也可以选择删除，避免无限循环
         # remove_processed_account(username)
+
+
+
 
 
 
